@@ -1,0 +1,14 @@
+
+spring:
+  application:
+    name: yenideen
+  datasource:
+    url: jdbc:postgresql://localhost:5432/yenideen
+    username: postgres
+    password: hilmelaymer
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
