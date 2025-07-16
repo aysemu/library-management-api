@@ -26,7 +26,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("select u from Book u where u.author = :author and u.age > :age")
     List<Book> findByAuthorAndAgeGreaterThan(@Param("author") String author, @Param("age") Long age);
-
+dawfasfs
     @Query("select count(u) from Book u where u.author = :author")
     Long countByAuthor(@Param("author") String author);
 
