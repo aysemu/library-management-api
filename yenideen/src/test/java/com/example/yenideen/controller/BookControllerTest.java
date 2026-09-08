@@ -3,6 +3,8 @@ package com.example.yenideen.controller;
 import com.example.yenideen.dto.BookCreateRequest;
 import com.example.yenideen.dto.BookResponse;
 import com.example.yenideen.exception.ResourceNotFoundException;
+import com.example.yenideen.security.CustomUserDetailsService;
+import com.example.yenideen.security.JwtTokenProvider;
 import com.example.yenideen.service.BookService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -34,6 +36,12 @@ class BookControllerTest {
 
     @MockitoBean
     private BookService bookService;
+
+    @MockitoBean
+    private JwtTokenProvider jwtTokenProvider;
+
+    @MockitoBean
+    private CustomUserDetailsService customUserDetailsService;
 
     @Test
     @DisplayName("GET /api/v1/books - Should return list of books")

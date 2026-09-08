@@ -11,10 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreateRequest {
-
-    @NotBlank(message = "Full name must not be blank")
-    private String fullName;
+public class AuthRequest {
 
     @NotBlank(message = "Email must not be blank")
     @Email(message = "Invalid email format")
@@ -22,7 +19,4 @@ public class UserCreateRequest {
 
     @NotBlank(message = "Password must not be blank")
     private String password;
-
-    @NotBlank(message = "Role must not be blank")
-    private String role;
 }

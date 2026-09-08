@@ -8,6 +8,7 @@ import com.example.yenideen.mapper.UserMapper;
 import com.example.yenideen.repository.UserRepository;
 import com.example.yenideen.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -28,6 +30,7 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("User with email " + request.getEmail() + " already exists.");
         }
         User user = UserMapper.toEntity(request);
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         User savedUser = userRepository.save(user);
         return UserMapper.toResponse(savedUser);
     }
