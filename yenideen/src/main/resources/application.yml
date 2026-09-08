@@ -1,6 +1,6 @@
 spring:
   application:
-    name: yenideen
+    name: library-management-api
   datasource:
     url: jdbc:postgresql://localhost:5432/yenideen
     username: postgres
