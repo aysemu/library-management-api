@@ -1,6 +1,8 @@
 # Library Management API
 
-Spring Boot 3 kullanılarak geliştirilmiş Kitap ve Kullanıcı Yönetimi ile Ödünç Alma süreçlerini yöneten RESTful API projesidir.
+Bu proje, Spring Boot, RESTful API tasarımı, Spring Security (JWT), Spring Data JPA ve veritabanı migrasyonu konularında pratik yapmak ve kendimi geliştirmek amacıyla hazırlanmış kişisel bir **eğitim ve çalışma projesidir**.
+
+Spring Boot 3 kullanılarak geliştirilmiş Kitap ve Kullanıcı Yönetimi ile Ödünç Alma süreçlerini yöneten RESTful API altyapısını içerir.
 
 ---
 
