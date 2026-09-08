@@ -1,5 +1,7 @@
 package com.example.yenideen.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +14,14 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookUpdateRequest {
+
     private String title;
+
     private String author;
+
+    @Min(value = 0, message = "Age must be greater than or equal to 0")
     private Long age;
+
+    @PastOrPresent(message = "Publish date must be in the past or present")
     private LocalDate publishDate;
 }

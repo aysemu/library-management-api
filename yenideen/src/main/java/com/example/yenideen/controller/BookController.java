@@ -4,6 +4,7 @@ import com.example.yenideen.dto.BookCreateRequest;
 import com.example.yenideen.dto.BookResponse;
 import com.example.yenideen.dto.BookUpdateRequest;
 import com.example.yenideen.service.BookService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,7 +24,7 @@ public class BookController {
     private final BookService bookService;
 
     @PostMapping
-    public ResponseEntity<BookResponse> createBook(@RequestBody BookCreateRequest request) {
+    public ResponseEntity<BookResponse> createBook(@Valid @RequestBody BookCreateRequest request) {
         BookResponse response = bookService.createBook(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
@@ -80,7 +81,7 @@ public class BookController {
     @PutMapping("/{id}")
     public ResponseEntity<BookResponse> updateBook(
             @PathVariable Long id,
-            @RequestBody BookUpdateRequest request) {
+            @Valid @RequestBody BookUpdateRequest request) {
         return ResponseEntity.ok(bookService.updateBook(id, request));
     }
 

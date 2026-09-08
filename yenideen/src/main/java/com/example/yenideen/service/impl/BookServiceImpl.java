@@ -4,6 +4,7 @@ import com.example.yenideen.dto.BookCreateRequest;
 import com.example.yenideen.dto.BookResponse;
 import com.example.yenideen.dto.BookUpdateRequest;
 import com.example.yenideen.entity.Book;
+import com.example.yenideen.exception.ResourceNotFoundException;
 import com.example.yenideen.mapper.BookMapper;
 import com.example.yenideen.repository.BookRepository;
 import com.example.yenideen.service.BookService;
@@ -42,14 +43,14 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookResponse getBookById(Long id) {
         Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id: " + id));
         return BookMapper.toResponse(book);
     }
 
     @Override
     public BookResponse getBookByTitle(String title) {
         Book book = bookRepository.findByTitle(title)
-                .orElseThrow(() -> new RuntimeException("Book not found with title: " + title));
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with title: " + title));
         return BookMapper.toResponse(book);
     }
 
@@ -57,7 +58,7 @@ public class BookServiceImpl implements BookService {
     @Transactional
     public BookResponse updateBook(Long id, BookUpdateRequest request) {
         Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id: " + id));
         BookMapper.updateEntityFromDto(request, book);
         Book updatedBook = bookRepository.save(book);
         return BookMapper.toResponse(updatedBook);
@@ -67,7 +68,7 @@ public class BookServiceImpl implements BookService {
     @Transactional
     public void deleteBook(Long id) {
         if (!bookRepository.existsById(id)) {
-            throw new RuntimeException("Book not found with id: " + id);
+            throw new ResourceNotFoundException("Book not found with id: " + id);
         }
         bookRepository.deleteById(id);
     }
