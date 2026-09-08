@@ -35,7 +35,7 @@ Spring Boot 3 kullanılarak geliştirilmiş Kitap ve Kullanıcı Yönetimi ile �
 ```text
 src/
 ├── main/
-│   ├── java/com/example/yenideen/
+│   ├── java/com/example/library/
 │   │   ├── config/             # Security ve uygulama konfigürasyonları
 │   │   ├── controller/         # REST uç noktaları (Book, User, Loan, Auth)
 │   │   ├── dto/                # Data Transfer Objects
@@ -58,14 +58,14 @@ src/
 ### Gereksinimler
 - Java 17+
 - Maven 3.8+ (veya proje içindeki `./mvnw`)
-- PostgreSQL (`localhost:5432/yenideen`)
+- PostgreSQL (`localhost:5432/library_db`)
 
 ### Çalıştırma Adımları
 
 1. Repoyu klonlayın:
    ```bash
-   git clone https://github.com/aysemu/yenideen.git
-   cd yenideen
+   git clone https://github.com/aysemu/library-management-api.git
+   cd library-management-api
    ```
 
 2. Testleri çalıştırın:
