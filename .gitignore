@@ -1,33 +1,61 @@
-HELP.md
+# Build & Compiled files
 target/
+build/
+out/
+bin/
+HELP.md
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
+# IDE & Editor files
+.idea/
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
+.vscode/
+.classpath
+.project
+.settings
+.factorypath
+.apt_generated
+.springBeans
+.sts4-cache
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+# Sensitive & Environment Variables
+.env
+.env.*
+*.env
+*.pem
+*.crt
+*.key
+*.keystore
+*.jks
+*.p12
+
+# Logs & Temporary files
+*.log
+logs/
+*.tmp
+*.swp
+*.bak
+
+# Databases & Local storage
+*.db
+*.sqlite
+*.h2.db
+
+# OS Generated files
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+desktop.ini
